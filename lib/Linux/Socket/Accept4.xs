@@ -54,7 +54,7 @@ PPCODE:
         if (fd < 0)
             goto badexit;
         if (IoIFP(nstio))
-            PerlIO_close(nstio);
+            PerlIO_close(IoIFP(nstio));
         IoIFP(nstio) = PerlIO_fdopen(fd, "r"SOCKET_OPEN_MODE);
         IoOFP(nstio) = PerlIO_fdopen(fd, "w"SOCKET_OPEN_MODE);
         IoTYPE(nstio) = IoTYPE_SOCKET;

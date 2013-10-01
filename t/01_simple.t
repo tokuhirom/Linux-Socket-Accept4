@@ -3,7 +3,7 @@ use Test::More;
 
 use Linux::Socket::Accept4;
 
-is(Linux::Socket::Accept4::hello(), 'Hello, world!');
+can_ok(Linux::Socket::Accept4::, qw(accept4 SOCK_CLOEXEC SOCK_NONBLOCK));
 
 done_testing;
 
