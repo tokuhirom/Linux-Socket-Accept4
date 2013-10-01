@@ -18,10 +18,10 @@ extern "C" {
 #define _GNU_SOURCE             /* See feature_test_macros(7) */
 #include <sys/socket.h>
 
-MODULE = Socket::Accept4    PACKAGE = Socket::Accept4
+MODULE = Linux::Socket::Accept4    PACKAGE = Linux::Socket::Accept4
 
 BOOT:
-    HV* stash = gv_stashpvs("Socket::Accept4", GV_ADD);
+    HV* stash = gv_stashpvs("Linux::Socket::Accept4", GV_ADD);
     newCONSTSUB(stash, "SOCK_CLOEXEC", newSViv(SOCK_CLOEXEC));
     newCONSTSUB(stash, "SOCK_NONBLOCK", newSViv(SOCK_NONBLOCK));
 

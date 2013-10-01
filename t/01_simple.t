@@ -1,9 +1,9 @@
 use strict;
 use Test::More;
 
-use Socket::Accept4;
+use Linux::Socket::Accept4;
 
-is(Socket::Accept4::hello(), 'Hello, world!');
+is(Linux::Socket::Accept4::hello(), 'Hello, world!');
 
 done_testing;
 

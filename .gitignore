@@ -23,6 +23,6 @@ cover_db/
 
 MYMETA.*
 
-/Socket-Accept4-*
-lib/Socket/Accept4.c
-!lib/Socket/ppport.h
+/Linux-Socket-Accept4-*
+lib/Linux/Socket/Accept4.c
+!lib/Linux/Socket/ppport.h

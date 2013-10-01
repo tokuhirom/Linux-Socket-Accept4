@@ -1,7 +1,7 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "accept4(2) binding",
    "author" : [
-      "tokuhirom <tokuhirom@gmail.com>"
+      "fb7ee91d9b089b78786fbb>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Minilla/v0.7.0, CPAN::Meta::Converter version 2.132510",
@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "Socket-Accept4",
+   "name" : "Linux-Socket-Accept4",
    "no_index" : {
       "directory" : [
          "t",
@@ -42,6 +42,8 @@
       },
       "runtime" : {
          "requires" : {
+            "Exporter" : "0",
+            "parent" : "0",
             "perl" : "5.008005"
          }
       },
@@ -52,5 +54,19 @@
       }
    },
    "release_status" : "unstable",
-   "version" : "0.01"
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/tokuhirom/Linux-Socket-Accept4/issues"
+      },
+      "homepage" : "https://github.com/tokuhirom/Linux-Socket-Accept4",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/tokuhirom/Linux-Socket-Accept4.git",
+         "web" : "https://github.com/tokuhirom/Linux-Socket-Accept4"
+      }
+   },
+   "version" : "0.01",
+   "x_contributors" : [
+      "tokuhirom <tokuhirom@gmail.com>"
+   ]
 }
