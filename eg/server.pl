@@ -21,5 +21,6 @@ while(my $sockaddr = accept4(my $csock, $server, SOCK_CLOEXEC)){
 	while (<$csock>){
 		print {$csock} $_;
 	}
+    print `ls -1 /proc/$$/fd/ | wc -l`, "\n";
 }
 
