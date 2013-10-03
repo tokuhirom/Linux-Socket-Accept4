@@ -31,6 +31,7 @@ void
 accept4(...)
 PROTOTYPE: **$
 PREINIT:
+    GV *ngv;
     IO *gstio;
     IO *nstio;
     char namebuf[MAXPATHLEN];
@@ -41,7 +42,9 @@ PPCODE:
         if (items !=3) {
             croak("Usage: accept4(ngv, ggv, flags)");
         }
-        nstio = sv_2io(ST(0));
+        ngv = newGVgen("Linux::Socket::Accept4");
+        GvIOp(ngv) = newIO();
+        nstio = GvIO(ngv);
         gstio = sv_2io(ST(1));
         int flags = SvIV(ST(2));
 
@@ -51,10 +54,9 @@ PPCODE:
 
         fd = accept4(PerlIO_fileno(IoIFP(gstio)), (struct sockaddr *) namebuf, &len, flags);
 
-        if (fd < 0)
+        if (fd < 0) {
             goto badexit;
-        if (IoIFP(nstio))
-            PerlIO_close(IoIFP(nstio));
+        }
         IoIFP(nstio) = PerlIO_fdopen(fd, "r"SOCKET_OPEN_MODE);
         IoOFP(nstio) = PerlIO_fdopen(fd, "w"SOCKET_OPEN_MODE);
         IoTYPE(nstio) = IoTYPE_SOCKET;
@@ -65,6 +67,7 @@ PPCODE:
             goto badexit;
         }
 
+        sv_setsv(ST(0), (SV*)ngv);
         mXPUSHp(namebuf, len);
         XSRETURN(1);
 
