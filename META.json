@@ -1,5 +1,5 @@
 {
-   "abstract" : "accept4(2) binding",
+   "abstract" : "accept4(2) bindings for Perl5",
    "author" : [
       "fb7ee91d9b089b78786fbb>"
    ],
@@ -21,7 +21,8 @@
          "share",
          "eg",
          "examples",
-         "author"
+         "author",
+         "builder"
       ]
    },
    "prereqs" : {
@@ -44,29 +45,31 @@
          "requires" : {
             "Exporter" : "0",
             "parent" : "0",
-            "perl" : "5.008005"
+            "perl" : "5.010001"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.98"
+            "Test::More" : "0.98",
+            "Test::TCP" : "2.01"
          }
       }
    },
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/tokuhirom/Linux-Socket-Accept4/issues"
+         "web" : "https://github.com/tokuhirom/Socket-Accept4/issues"
       },
-      "homepage" : "https://github.com/tokuhirom/Linux-Socket-Accept4",
+      "homepage" : "https://github.com/tokuhirom/Socket-Accept4",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/tokuhirom/Linux-Socket-Accept4.git",
-         "web" : "https://github.com/tokuhirom/Linux-Socket-Accept4"
+         "url" : "git://github.com/tokuhirom/Socket-Accept4.git",
+         "web" : "https://github.com/tokuhirom/Socket-Accept4"
       }
    },
    "version" : "0.01",
    "x_contributors" : [
+      "Masahiro Nagano <kazeburo@gmail.com>",
       "tokuhirom <tokuhirom@gmail.com>"
    ]
 }
