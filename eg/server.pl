@@ -15,6 +15,7 @@ setsockopt($server, SOL_SOCKET, SO_REUSEADDR, 1)
 bind($server, pack_sockaddr_in($port, INADDR_ANY)) or die;
 listen($server, SOMAXCONN) or die;
 
+# while(my $sockaddr = accept(my $csock, $server)){
 while(my $sockaddr = accept4(my $csock, $server, SOCK_CLOEXEC)){
 	my $org_handle = select($csock); $| = 1; select($org_handle);
 	while (<$csock>){

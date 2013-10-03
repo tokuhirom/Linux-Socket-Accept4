@@ -42,9 +42,21 @@ PPCODE:
         if (items !=3) {
             croak("Usage: accept4(ngv, ggv, flags)");
         }
-        ngv = newGVgen("Linux::Socket::Accept4");
-        GvIOp(ngv) = newIO();
-        nstio = GvIO(ngv);
+        switch (SvTYPE(ST(0))) {
+            case SVt_PVIO:
+            case SVt_PVGV:
+            case SVt_PVLV:
+                PerlIO_printf(PerlIO_stderr(), "Heh\n");
+                nstio = sv_2io(ST(0));
+                break;
+            default: {
+                GV *ngv = newGVgen("Linux::Socket::Accept4");
+                GvIOp(ngv) = newIO();
+                sv_setsv(ST(0), (SV*)ngv);
+                nstio = GvIO(ST(0));
+                break;
+            }
+        }
         gstio = sv_2io(ST(1));
         int flags = SvIV(ST(2));
 
@@ -57,6 +69,9 @@ PPCODE:
         if (fd < 0) {
             goto badexit;
         }
+        if (IoIFP(ST(0))) {
+            PerlIO_close(IoIFP(nstio));
+        }
         IoIFP(nstio) = PerlIO_fdopen(fd, "r"SOCKET_OPEN_MODE);
         IoOFP(nstio) = PerlIO_fdopen(fd, "w"SOCKET_OPEN_MODE);
         IoTYPE(nstio) = IoTYPE_SOCKET;
@@ -67,8 +82,7 @@ PPCODE:
             goto badexit;
         }
 
-        sv_setsv(ST(0), (SV*)ngv);
-        mXPUSHp(namebuf, len);
+        ST(0) = sv_2mortal(newSVpvn(namebuf, len));
         XSRETURN(1);
 
     nuts:
