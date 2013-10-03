@@ -52,8 +52,8 @@ PPCODE:
             default: {
                 GV *ngv = newGVgen("Linux::Socket::Accept4");
                 GvIOp(ngv) = newIO();
-                sv_setsv(ST(0), (SV*)ngv);
-                nstio = GvIO(ST(0));
+                nstio = GvIO(ngv);
+                sv_setsv(ST(0), sv_2mortal(newRV_noinc((SV*)ngv)));
                 break;
             }
         }
