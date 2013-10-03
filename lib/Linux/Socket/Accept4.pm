@@ -18,12 +18,11 @@ __END__
 
 =head1 NAME
 
-Linux::Socket::Accept4 - accept4(2) binding
+Linux::Socket::Accept4 - accept4(2) bindings for Perl5
 
 =head1 SYNOPSIS
 
     use Linux::Socket::Accept4;
-    use Fcntl qw(SOCK_CLOEXEC);
 
     accept4(CSOCK, SSOCK, SOCK_CLOEXEC);
 
@@ -31,6 +30,30 @@ Linux::Socket::Accept4 - accept4(2) binding
 
 Linux::Socket::Accept4 is a wrapper moodule for accept4(2).
 This module is only available on GNU Linux.
+
+accept4(2) is faster than accept(2) in some case.
+
+=head1 FUNCTIONS
+
+=over 4
+
+=item C<< my $peeraddr = accept4($csock, $ssock, $flags); >>
+
+Accept a connection on a socket.
+
+=back
+
+=head1 CONSTANTS
+
+All constants are exported by default.
+
+=over 4
+
+=item C<< SOCK_CLOEXEC >>
+
+=item C<< SOCK_NONBLOCK >>
+
+=back
 
 =head1 LICENSE
 
