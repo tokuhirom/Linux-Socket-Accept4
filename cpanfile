@@ -3,7 +3,7 @@ requires 'Exporter';
 requires 'parent';
 
 on 'configure' => sub {
-    requires 'Devel::CheckCompiler';
+    requires 'Devel::CheckCompiler', '0.03';
 };
 
 on 'test' => sub {
