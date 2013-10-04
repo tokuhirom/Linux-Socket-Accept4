@@ -28,7 +28,7 @@ Linux::Socket::Accept4 - accept4(2) bindings for Perl5
 
 =head1 DESCRIPTION
 
-Linux::Socket::Accept4 is a wrapper moodule for accept4(2).
+Linux::Socket::Accept4 is a wrapper module for accept4(2).
 This module is only available on GNU Linux.
 
 accept4(2) is faster than accept(2) in some case.
