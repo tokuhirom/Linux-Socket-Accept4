@@ -46,9 +46,14 @@ PPCODE:
             case SVt_PVIO:
             case SVt_PVGV:
             case SVt_PVLV:
-                PerlIO_printf(PerlIO_stderr(), "Heh\n");
                 nstio = sv_2io(ST(0));
                 break;
+            case SVt_IV:
+                if (SvROK(ST(0))) {
+                    nstio = sv_2io(ST(0));
+                    break;
+                }
+                /* fallbthrough */
             default: {
                 GV *ngv = newGVgen("Linux::Socket::Accept4");
                 GvIOp(ngv) = newIO();

@@ -11,6 +11,7 @@ sub do_accept1 {
     my $class = ref $server;
     my $conn = $class->new;
     my $peer = accept4($conn,$server,$flags);
+    isa_ok $conn, $class;
     return wantarray ? ($conn,$peer) : ($conn);
 }
 
