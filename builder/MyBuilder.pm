@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 use 5.010_001;
 use parent qw(Module::Build);
-use Devel::CheckCompiler 0.03;
+use Devel::CheckCompiler 0.04;
 
 sub new {
     my $self = shift;
@@ -12,12 +12,16 @@ sub new {
         print "This module only supports linux.\n";
         exit 0;
     }
-    if (check_compile(<<'...') != 1) {
-#include <sys/syscall.h>
-
-#if !defined __NR_accept4
-#error "Your environment does not supports accept4."
+    if (check_compile(<<'...', executable => 1) != 1) {
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
 #endif
+#include <sys/socket.h>
+
+int main(void)
+{
+    return accept4(0, (void*)0, (void*)0, 0);
+}
 ...
         print "This module only supports linux 2.6.28+ and glibc 2.10+.\n";
         exit 0;
