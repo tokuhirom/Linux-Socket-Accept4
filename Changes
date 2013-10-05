@@ -2,6 +2,11 @@ Revision history for Perl extension Linux-Socket-Accept4
 
 {{$NEXT}}
 
+0.02 2013-10-05T09:32:00Z
+
+    - Fixed configuration issue
+      (syohex)
+
 0.01 2013-10-04T06:28:22Z
 
     - original version

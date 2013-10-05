@@ -30,7 +30,7 @@
          "requires" : {
             "CPAN::Meta" : "0",
             "CPAN::Meta::Prereqs" : "0",
-            "Devel::CheckCompiler" : "0.03",
+            "Devel::CheckCompiler" : "0.04",
             "Module::Build" : "0.38"
          }
       },
@@ -59,16 +59,16 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/tokuhirom/Socket-Accept4/issues"
+         "web" : "https://github.com/tokuhirom/Linux-Socket-Accept4/issues"
       },
-      "homepage" : "https://github.com/tokuhirom/Socket-Accept4",
+      "homepage" : "https://github.com/tokuhirom/Linux-Socket-Accept4",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/tokuhirom/Socket-Accept4.git",
-         "web" : "https://github.com/tokuhirom/Socket-Accept4"
+         "url" : "git://github.com/tokuhirom/Linux-Socket-Accept4.git",
+         "web" : "https://github.com/tokuhirom/Linux-Socket-Accept4"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_contributors" : [
       "Masahiro Nagano <kazeburo@gmail.com>",
       "Syohei YOSHIDA <syohex@gmail.com>",
