@@ -58,7 +58,9 @@ PPCODE:
                 GV *ngv = newGVgen("Linux::Socket::Accept4");
                 GvIOp(ngv) = newIO();
                 nstio = GvIO(ngv);
-                sv_setsv(ST(0), sv_2mortal(newRV_noinc((SV*)ngv)));
+                sv_setsv(ST(0), sv_2mortal(newRV_inc((SV*)ngv)));
+                /* stolen from IO::File's new_tmpfile() */
+                (void)hv_delete(GvSTASH(ngv), GvNAME(ngv), GvNAMELEN(ngv), G_DISCARD);
                 break;
             }
         }
