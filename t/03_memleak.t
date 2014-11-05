@@ -4,7 +4,6 @@ use Test::TCP 2.01;
 use Linux::Socket::Accept4;
 use IO::Socket::INET;
 use IO::Select;
-use Symbol;
 
 test_tcp(
     client => sub {
