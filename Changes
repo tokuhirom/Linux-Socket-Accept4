@@ -2,6 +2,10 @@ Revision history for Perl extension Linux-Socket-Accept4
 
 {{$NEXT}}
 
+0.03 2014-11-10T12:26:28Z
+    - Fixed memory leak issue
+      (kazeburo)
+
 0.02 2013-10-05T09:32:00Z
 
     - Fixed configuration issue
