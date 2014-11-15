@@ -49,6 +49,9 @@ PPCODE:
                 nstio = sv_2io(ST(0));
                 break;
             case SVt_IV:
+#if PERL_VERSION < 11
+            case SVt_RV:
+#endif
                 if (SvROK(ST(0))) {
                     nstio = sv_2io(ST(0));
                     break;
