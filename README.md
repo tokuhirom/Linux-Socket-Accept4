@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tokuhirom/Linux-Socket-Accept4.svg?branch=master)](https://travis-ci.org/tokuhirom/Linux-Socket-Accept4)
 # NAME
 
 Linux::Socket::Accept4 - accept4(2) bindings for Perl5
