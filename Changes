@@ -2,6 +2,10 @@ Revision history for Perl extension Linux-Socket-Accept4
 
 {{$NEXT}}
 
+0.04 2014-11-17T04:38:27Z
+    - Fixed SV type issue for older Perl(< 5.11)
+      (syohex)
+
 0.03 2014-11-10T12:26:28Z
     - Fixed memory leak issue
       (kazeburo)
