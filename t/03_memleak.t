@@ -5,6 +5,14 @@ use Linux::Socket::Accept4;
 use IO::Socket::INET;
 use IO::Select;
 
+my $statm_path = '/proc/self/statm';
+
+if ($^O eq 'freebsd')
+{
+    substr($statm_path, 0, 0, '/compat/linux');
+    -e $statm_path or die "linproc has to be mounted in /compat/linux/proc\n";
+}
+
 test_tcp(
     client => sub {
         my ($port, $server_pid) = @_;
@@ -43,7 +51,7 @@ test_tcp(
             my $len = $conn->sysread(my $buf, 1024);
             next if defined $len && $len == 0;  #disconnect
             my $size;
-            open(my $fh, '<', '/proc/self/statm') or die $!;
+            open(my $fh, '<', $statm_path) or die $!;
             (undef,$size) = split /\s/, scalar <$fh>;
             close $fh;
             $size = $size * 4;
