@@ -4,7 +4,7 @@
       "fb7ee91d9b089b78786fbb>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.2.1, CPAN::Meta::Converter version 2.142690",
+   "generated_by" : "Minilla/v2.3.0, CPAN::Meta::Converter version 2.142690",
    "license" : [
       "perl_5"
    ],
@@ -67,11 +67,11 @@
          "web" : "https://github.com/tokuhirom/Linux-Socket-Accept4"
       }
    },
-   "version" : "0.04",
+   "version" : "0.05",
    "x_contributors" : [
       "Masahiro Nagano <kazeburo@gmail.com>",
       "Tokuhiro Matsuno <tokuhirom@gmail.com>",
-      "Syohei YOSHIDA <syohex@gmail.com>",
-      "Maxime Soulé <btik-git@scoubidou.com>"
+      "Maxime Soulé <btik-git@scoubidou.com>",
+      "Syohei YOSHIDA <syohex@gmail.com>"
    ]
 }
