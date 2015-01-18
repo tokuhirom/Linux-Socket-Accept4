@@ -6,11 +6,9 @@ use IO::Socket::INET;
 use IO::Select;
 
 my $statm_path = '/proc/self/statm';
-
-if ($^O eq 'freebsd')
-{
+if ($^O eq 'freebsd') {
     substr($statm_path, 0, 0, '/compat/linux');
-    -e $statm_path or die "linproc has to be mounted in /compat/linux/proc\n";
+    plan skip_all => "linproc has to be mounted in /compat/linux/proc" unless -e $statm_path;
 }
 
 test_tcp(
