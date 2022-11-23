@@ -4,6 +4,7 @@ requires 'parent';
 
 on 'configure' => sub {
     requires 'Devel::CheckCompiler', '0.04';
+    requires 'Module::Build', '0.4005';
 };
 
 on 'test' => sub {
